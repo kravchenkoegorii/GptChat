@@ -15,10 +15,3 @@ jobs:
     uses: ./.github/workflows/build.yaml
     secrets: inherit
     needs: test
-
-  deploy:
-    name: Deploy
-    uses: ./.github/workflows/fly-io.yaml
-    secrets: inherit
-    needs: build
-

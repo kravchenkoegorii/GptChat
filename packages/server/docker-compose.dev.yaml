@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   rnd-gpt_server:
-    container_name: "rnd-gpt-service"
+    container_name: "gpt-service"
     build:
       context: .
     command: npm run start:dev
@@ -21,7 +21,7 @@ services:
       - rnd-gpt_psql
 
   rnd-gpt_psql:
-    container_name: "rnd-gpt-psql"
+    container_name: "gpt-psql"
     image: postgres
     environment:
       POSTGRES_USER: user
