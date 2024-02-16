@@ -11,7 +11,7 @@ Nest server starter repository.
 $ npm install
 ```
 
-Replace `rnd-gpt` to your project name everywhere in repository.
+Replace `gpt-chat` to your project name everywhere in repository.
 Replace `Description` in current file.
 
 Create `.env` file from `.env.example`.

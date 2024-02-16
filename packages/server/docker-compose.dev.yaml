@@ -1,7 +1,7 @@
 version: "3.7"
 
 services:
-  rnd-gpt_server:
+  gpt_server:
     container_name: "gpt-service"
     build:
       context: .
@@ -13,14 +13,14 @@ services:
     env_file:
       - .env
     environment:
-      DB_HOST: rnd-gpt_psql
+      DB_HOST: gpt_psql
       DB_PORT: 5432
     ports:
       - "6004:6001"
     depends_on:
-      - rnd-gpt_psql
+      - gpt_psql
 
-  rnd-gpt_psql:
+  gpt_psql:
     container_name: "gpt-psql"
     image: postgres
     environment:
@@ -31,4 +31,4 @@ services:
       - 5400:5432
 
 volumes:
-  rnd-gpt:
+  gpt:

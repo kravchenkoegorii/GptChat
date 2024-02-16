@@ -1,5 +1,5 @@
 {
-  "name": "rnd-gpt-backend",
+  "name": "gpt-backend",
   "version": "1.0.0",
   "main": "dist/main.js",
   "scripts": {
