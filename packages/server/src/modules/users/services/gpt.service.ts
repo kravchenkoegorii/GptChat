@@ -1,9 +1,8 @@
-import { spawn } from "node:child_process";
-import { Readable, Writable } from "node:stream";
-
 import { Injectable, Logger } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 import { InjectRepository } from "@nestjs/typeorm";
+import { spawn } from "node:child_process";
+import { Readable, Writable } from "node:stream";
 import { OpenAI } from "openai";
 import { ChatCompletionMessageParam } from "openai/resources/chat/completions";
 import { Repository } from "typeorm";

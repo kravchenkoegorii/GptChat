@@ -5,11 +5,11 @@
     "lib": [
       "dom",
       "dom.iterable",
-      "esnext",
+      "esnext"
     ],
     "types": [
       "vite/client",
-      "vite-plugin-svgr/client",
+      "vite-plugin-svgr/client"
     ],
     "allowJs": true,
     "skipLibCheck": true,

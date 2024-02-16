@@ -19,12 +19,6 @@ export class GlobalHttpExceptionFilter implements ExceptionFilter {
     ]);
   }
 
-  private inspect(status: number): IServiceExceptionCategory {
-    const category = this.map.get(status);
-    if (!category) return "UNKNOWN";
-    return category;
-  }
-
   catch(exception: HttpException, host: ArgumentsHost): void {
     const { stack } = exception;
     const response = host.switchToHttp().getResponse<Response>();
@@ -43,5 +37,11 @@ export class GlobalHttpExceptionFilter implements ExceptionFilter {
       status,
       ...error.toJson({ withDetails: false }),
     });
+  }
+
+  private inspect(status: number): IServiceExceptionCategory {
+    const category = this.map.get(status);
+    if (!category) return "UNKNOWN";
+    return category;
   }
 }

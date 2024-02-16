@@ -5,9 +5,9 @@ export const MuiButtonBase = {
 
   styleOverrides: {
     root: {
-      '&.MuiCheckbox-root': {
-        '&:hover': {
-          backgroundColor: 'transparent',
+      "&.MuiCheckbox-root": {
+        "&:hover": {
+          backgroundColor: "transparent",
         },
       },
     },

@@ -1,8 +1,8 @@
-import GlobalStyle from '@/components/GlobalStyle';
-import { EmailOutlined } from '@mui/icons-material';
-import { AppBar, Box, CssBaseline, IconButton, Tooltip } from '@mui/material';
-import React, { FC } from 'react';
-import styled from 'styled-components';
+import GlobalStyle from "@/components/GlobalStyle";
+import { EmailOutlined } from "@mui/icons-material";
+import { AppBar, Box, CssBaseline, IconButton, Tooltip } from "@mui/material";
+import React, { FC } from "react";
+import styled from "styled-components";
 
 export const RootContainer = styled(Box)`
   display: flex;
@@ -40,8 +40,9 @@ const RootLayout: FC<IAuthLayout> = ({ children }: IAuthLayout) => {
       <GlobalStyle />
       <RootContainer>
         <ContainerAppBar>
-          <Tooltip title={'Contact Us!'}>
-            <IconButton sx={{ margin: 'auto 0 auto auto' }} onClick={() => window.open('mailto:kravchenko13138@gmail.com')}>
+          <Tooltip title={"Contact Us!"}>
+            <IconButton sx={{ margin: "auto 0 auto auto" }}
+                        onClick={() => window.open("mailto:kravchenko13138@gmail.com")}>
               <EmailOutlined />
             </IconButton>
           </Tooltip>

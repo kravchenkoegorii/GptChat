@@ -1,5 +1,5 @@
-import { createContext, ReactNode, useContext, useEffect, useState } from "react";
 import { IState, SetState } from "@/types/store";
+import { createContext, ReactNode, useContext, useEffect, useState } from "react";
 import instance from "../middleware/api";
 import { IUser } from "../models/models";
 

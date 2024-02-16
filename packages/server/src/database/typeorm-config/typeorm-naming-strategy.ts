@@ -24,6 +24,10 @@ export class TypeormNamingStrategy extends DefaultNamingStrategy {
     return `uq_${this.getTable(tableOrName)}_${this.getColumns(columnNames)}`;
   }
 
+  checkConstraintName(tableOrName: Table | string, expression: string): string {
+    return `${this.getTable(tableOrName)}_${expression.split(" ")[0]}_check`;
+  }
+
   // eslint-disable-next-line class-methods-use-this
   private getTable(tableOrName: Table | string): string {
     const tableName = typeof tableOrName === "string" ? tableOrName : tableOrName.name;
@@ -36,8 +40,5 @@ export class TypeormNamingStrategy extends DefaultNamingStrategy {
     const columnsName = columns.join("_and_");
 
     return columnsName;
-  }
-  checkConstraintName(tableOrName: Table | string, expression: string): string {
-    return `${this.getTable(tableOrName)}_${expression.split(" ")[0]}_check`;
   }
 }

@@ -1,8 +1,7 @@
+import { MessageEntity, UserEntity } from "@module/modules/users/entities";
 import { DataSource } from "typeorm";
 
 import { TypeormNamingStrategy } from "./typeorm-naming-strategy";
-
-import { MessageEntity, UserEntity } from "@module/modules/users/entities";
 
 export const dataSource = new DataSource({
   type: "postgres",

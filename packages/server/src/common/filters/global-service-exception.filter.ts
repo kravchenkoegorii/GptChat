@@ -1,3 +1,4 @@
+import { IServiceExceptionCategory, ServiceException } from "@module/common/exceptions";
 import {
   ArgumentsHost,
   BadRequestException,
@@ -13,11 +14,10 @@ import {
 } from "@nestjs/common";
 import { Response } from "express";
 
-import { IServiceExceptionCategory, ServiceException } from "@module/common/exceptions";
-
 @Catch(ServiceException)
 export class GlobalServiceExceptionFilter implements ExceptionFilter {
   private readonly map: Map<IServiceExceptionCategory, (message: string) => HttpException>;
+  private readonly logger = new Logger(GlobalServiceExceptionFilter.name);
 
   constructor() {
     this.map = new Map<IServiceExceptionCategory, (message: string) => HttpException>([
@@ -28,17 +28,6 @@ export class GlobalServiceExceptionFilter implements ExceptionFilter {
       ["EXTERNAL_API", (message) => new UnprocessableEntityException(message)],
       ["UNKNOWN", () => new InternalServerErrorException("Internal error")],
     ]);
-  }
-
-  private readonly logger = new Logger(GlobalServiceExceptionFilter.name);
-
-  private getCategory(category: IServiceExceptionCategory, message: string): HttpException {
-    const error = this.map.get(category);
-    if (!error) {
-      return new InternalServerErrorException("unknown error");
-    }
-
-    return error(message);
   }
 
   catch(exception: ServiceException<never>, host: ArgumentsHost): void {
@@ -55,5 +44,14 @@ export class GlobalServiceExceptionFilter implements ExceptionFilter {
         ...exception.toJson({ withDetails: true }),
       })
       .end();
+  }
+
+  private getCategory(category: IServiceExceptionCategory, message: string): HttpException {
+    const error = this.map.get(category);
+    if (!error) {
+      return new InternalServerErrorException("unknown error");
+    }
+
+    return error(message);
   }
 }

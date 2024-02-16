@@ -4,7 +4,7 @@ export interface IError {
 }
 
 export enum EApiStatuses {
-  SUCCESS = 'success',
-  FAILED = 'failed',
-  WARNING = 'warning',
+  SUCCESS = "success",
+  FAILED = "failed",
+  WARNING = "warning",
 }

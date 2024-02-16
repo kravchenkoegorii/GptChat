@@ -1,7 +1,6 @@
+import { ServiceException } from "@module/common/exceptions";
 import { ArgumentsHost, BadRequestException, Catch, ExceptionFilter, Logger } from "@nestjs/common";
 import { Response } from "express";
-
-import { ServiceException } from "@module/common/exceptions";
 
 @Catch(BadRequestException)
 export class GlobalBadRequestExceptionFilter implements ExceptionFilter {

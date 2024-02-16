@@ -1,8 +1,8 @@
+import { IMessage } from "@/models/models";
 import { MessageRole } from "@/types/message-role.enum";
 import { IMessagesState } from "@/types/store";
 import { createContext, ReactNode, useCallback, useContext, useEffect, useState } from "react";
 import instance from "../middleware/api";
-import { IMessage } from "@/models/models";
 import { useStore } from "./global";
 
 // Create a context to manage the global state

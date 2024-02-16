@@ -1,7 +1,6 @@
 ![Node.js](https://img.shields.io/badge/node.js-20.5-green)
 ![NestJS](https://img.shields.io/npm/v/%40nestjs/core?label=NestJS&color=ea2845)
 
-
 ## Description
 
 Nest server starter repository.

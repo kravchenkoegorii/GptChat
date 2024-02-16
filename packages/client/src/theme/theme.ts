@@ -1,10 +1,7 @@
-import { createTheme, responsiveFontSizes } from '@mui/material/styles';
-import {
-  MuiButton,
-  MuiButtonBase,
-} from 'src/theme/components';
+import { createTheme, responsiveFontSizes } from "@mui/material/styles";
+import { MuiButton, MuiButtonBase } from "src/theme/components";
 
-import { breakpoints, palette, shape, typography } from 'src/theme/custom';
+import { breakpoints, palette, shape, typography } from "src/theme/custom";
 
 const theme = createTheme({
   ...breakpoints,

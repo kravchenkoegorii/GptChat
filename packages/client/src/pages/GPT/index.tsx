@@ -1,10 +1,10 @@
-import { useMessages } from '@/store/messages';
-import { MessageRole } from '@/types/message-role.enum';
-import { CloseOutlined, QuestionMark } from '@mui/icons-material';
-import { Box, Fade, Grid, IconButton, Paper, Skeleton, Tooltip, Typography } from '@mui/material';
-import React, { useCallback, useEffect } from 'react';
-import { toast } from 'react-toastify';
-import { ChatText, MessageTextInput } from './components';
+import { useMessages } from "@/store/messages";
+import { MessageRole } from "@/types/message-role.enum";
+import { CloseOutlined, QuestionMark } from "@mui/icons-material";
+import { Box, Fade, Grid, IconButton, Paper, Skeleton, Tooltip, Typography } from "@mui/material";
+import React, { useCallback, useEffect } from "react";
+import { toast } from "react-toastify";
+import { ChatText, MessageTextInput } from "./components";
 
 export const GPT = () => {
   const { messages, isLoading: isMessageLoading, sendMessage, isAudioLoading } = useMessages();
@@ -13,7 +13,7 @@ export const GPT = () => {
 
   const sendUserMessage = useCallback<(text: string) => void>((text: string) => {
     if (isMessageLoading) {
-      toast('Wait for previous answer');
+      toast("Wait for previous answer");
       return;
     }
 
@@ -47,8 +47,15 @@ export const GPT = () => {
           <>
             <Fade in={openHint} timeout={1500}>
               <Paper
-                style={{ padding: 5, maxWidth: '30%', minWidth: 250, margin: 'auto', flexDirection: 'column', display: openHint ? 'flex' : 'none' }}>
-                <IconButton sx={{ marginLeft: 'auto' }} onClick={() => {
+                style={{
+                  padding: 5,
+                  maxWidth: "30%",
+                  minWidth: 250,
+                  margin: "auto",
+                  flexDirection: "column",
+                  display: openHint ? "flex" : "none",
+                }}>
+                <IconButton sx={{ marginLeft: "auto" }} onClick={() => {
                   setOpenHint(false);
                   setTimeout(() => setOpenHint2(true), 500);
                 }}>
@@ -65,9 +72,16 @@ export const GPT = () => {
             </Fade>
             <Fade in={openHint2} timeout={1500}>
               <Paper
-                style={{ padding: 5, maxWidth: '30%', minWidth: 250, margin: 'auto', flexDirection: 'column', display: openHint2 ? 'flex' : 'none' }}>
-                <Tooltip title={'Show hint'}>
-                  <IconButton sx={{ marginLeft: 'auto' }} onClick={() => {
+                style={{
+                  padding: 5,
+                  maxWidth: "30%",
+                  minWidth: 250,
+                  margin: "auto",
+                  flexDirection: "column",
+                  display: openHint2 ? "flex" : "none",
+                }}>
+                <Tooltip title={"Show hint"}>
+                  <IconButton sx={{ marginLeft: "auto" }} onClick={() => {
                     setOpenHint2(false);
                     setOpenHint(true);
                   }}>
@@ -98,7 +112,7 @@ export const GPT = () => {
               direction="row"
               item
               xs={12}
-              justifyContent={el.role === MessageRole.CHAT_GPT ? 'start' : 'end'}
+              justifyContent={el.role === MessageRole.CHAT_GPT ? "start" : "end"}
             >
               <ChatText>
                 <Typography>{el.text}</Typography>
@@ -112,7 +126,7 @@ export const GPT = () => {
               direction="row"
               item
               xs={12}
-              justifyContent={isMessageLoading ? 'start' : 'end'}
+              justifyContent={isMessageLoading ? "start" : "end"}
               marginTop={1}
             >
               <Skeleton variant="rounded" width="35%" height={32} />

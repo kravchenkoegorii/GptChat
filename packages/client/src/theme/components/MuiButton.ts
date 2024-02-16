@@ -5,10 +5,10 @@ export const MuiButton = {
       paddingLeft: 20,
       paddingRight: 20,
       fontWeight: 700,
-      textTransform: 'none',
-      boxShadow: 'none',
-      '&:hover': {
-        boxShadow: 'none',
+      textTransform: "none",
+      boxShadow: "none",
+      "&:hover": {
+        boxShadow: "none",
       },
     },
   },

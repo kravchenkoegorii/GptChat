@@ -1,3 +1,4 @@
+import { ReqUserId, UploadMusicFile, WithUser } from "@module/common/decorators";
 import { Body, Controller, Get, Post, UseInterceptors } from "@nestjs/common";
 import { FileInterceptor } from "@nestjs/platform-express";
 
@@ -5,8 +6,6 @@ import { SendMessageBody } from "../dto";
 import { MessageEntity, UserEntity } from "../entities";
 import { UsersService } from "../services";
 import { GptService } from "../services/gpt.service";
-
-import { ReqUserId, UploadMusicFile, WithUser } from "@module/common/decorators";
 
 
 @Controller("users")
