@@ -1,0 +1,26 @@
+name: Main CI
+
+on:
+  push:
+    branches:
+      - "master"
+
+jobs:
+  test:
+    name: Test
+    uses: ./.github/workflows/test.yaml
+
+  build:
+    name: Build
+    uses: ./.github/workflows/build.yaml
+    secrets: inherit
+    needs: test
+
+  deploy:
+    name: Deploy
+    uses: ./.github/workflows/fly-io.yaml
+    secrets: inherit
+    needs: build
+    environment:
+      name: production
+
